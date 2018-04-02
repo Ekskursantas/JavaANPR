@@ -24,11 +24,11 @@ public class RecognitionAllIT {
 
     private Intelligence intel;
     private String expectedResult;
-    private File f;
+    private File file;
 
 
     public RecognitionAllIT(File f, String expectedResult) {
-        this.f = f;
+        this.file = f;
         this.expectedResult = expectedResult;
     }
 
@@ -66,7 +66,7 @@ public class RecognitionAllIT {
 
     @Test
     public void recogniseIt() throws IOException{
-        CarSnapshot carSnap = new CarSnapshot(new FileInputStream(f));
+        CarSnapshot carSnap = new CarSnapshot(new FileInputStream(file));
         String read = intel.recognize(carSnap);
         assertThat(carSnap, notNullValue());
         assertThat(read, notNullValue());
